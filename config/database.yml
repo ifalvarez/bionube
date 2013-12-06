@@ -43,6 +43,7 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
+# env RAILS_ENV=production DATABASE_URL=postgresql://qkvzgelueqafpt:6hviiKIQRM498Epeu6WgDq9Uvc@127.0.0.1/d3hon0a9a5kpoq bundle exec rake assets:precompile 2>&1
 test:
   adapter: postgresql
   encoding: unicode
@@ -54,7 +55,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: manasy-rails_production
+  database: d3hon0a9a5kpoq
   pool: 5
-  username: manasy-rails
-  password:
+  username: qkvzgelueqafpt
+  password: 6hviiKIQRM498Epeu6WgDq9Uvc
