@@ -1,7 +1,8 @@
 ManasyRails::Application.routes.draw do
   
+  get "landing/index"
   devise_for :users
-  root 'welcome#index'
+  root 'landing#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

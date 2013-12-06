@@ -38,6 +38,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# Use twitter bootstrap
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :github => 'anjlab/bootstrap-rails'
+                              
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
