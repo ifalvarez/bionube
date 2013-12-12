@@ -1,2 +1,4 @@
 <p class="navbar-text"><%= current_user.email %></p>
-<%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'btn btn-default navbar-btn' %>
+<%= link_to destroy_user_session_path, :method => :delete, :class => 'btn btn-default navbar-btn' do %>
+	<span class="glyphicon glyphicon-log-out"></span> Salir
+<% end %>
