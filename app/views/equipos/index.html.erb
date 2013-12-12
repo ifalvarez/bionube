@@ -33,8 +33,37 @@
         <td><%= equipo.modelo %></td>
         <td><%= equipo.serie %></td>
         <td><%= equipo.inventario %></td>
-        <td><%= equipo.tipo %></td>
-        <td><%= equipo.clasificacion %></td>
+        <td>
+			<% if equipo.tipo == 1 %>
+				Electrico
+			<% end %>
+			<% if equipo.tipo == 2 %>
+				Electronico
+			<% end %>
+			<% if equipo.tipo == 3 %>
+				Mecanico
+			<% end %>
+			<% if equipo.tipo == 4 %>
+				Hidraulico
+			<% end %>
+			<% if equipo.tipo == 5 %>
+				Neumatico
+			<% end %>
+		</td>
+        <td>
+			<% if equipo.clasificacion == 1 %>
+				I
+			<% end %>
+			<% if equipo.clasificacion == 2 %>
+				IIA
+			<% end %>
+			<% if equipo.clasificacion == 3 %>
+				IIB
+			<% end %>
+			<% if equipo.clasificacion == 4 %>
+				III
+			<% end %>
+		</td>
         <td><%= link_to(equipo) do %>
         	  	<span class="glyphicon glyphicon-th-list"></span>
 			<% end %>
