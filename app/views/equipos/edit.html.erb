@@ -1,0 +1,8 @@
+<div class="container">
+	<ol class="breadcrumb">
+	  <li><%= link_to "Equipos", equipos_path %></li>
+	  <li><%= link_to @equipo.equipo, @equipo %></li>
+	  <li class="active">Editar</li>
+	</ol>
+	<%= render partial: 'form', locals: {action: "edit"} %>
+</div>

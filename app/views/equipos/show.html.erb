@@ -1,0 +1,85 @@
+<div class="container">
+	<ol class="breadcrumb">
+	  <li><%= link_to "Equipos", equipos_path %></li>
+	  <li class="active"><%= @equipo.equipo %></li>
+	</ol>
+	<div class="row">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#">Hoja de vida</a></li>
+			<li><a href="#">Mantenimiento</a></li>
+			<li><a href="#">Metrología</a></li>
+		</ul>
+		<br />
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<%= image_tag "equipment.jpg", :class => "img-thumbnail equipment-image" %>
+		</div>
+		<div class="col-xs-4">
+			<table class="table">
+				<tr>
+					<td class="field-label"><strong>Equipo</strong></td>
+					<td><%= @equipo.equipo %></td>
+				</tr>
+				<tr>
+					<td class="field-label"><strong>Marca</strong></td>
+					<td><%= @equipo.marca %></td>
+				</tr>
+				<tr>
+					<td class="field-label"><strong>Modelo</strong></td>
+					<td><%= @equipo.modelo %></td>
+				</tr>
+				<tr>
+					<td class="field-label"><strong>Serie</strong></td>
+					<td><%= @equipo.serie %></td>
+				</tr>
+				<tr>
+					<td class="field-label"><strong>Inventario</strong></td>
+					<td><%= @equipo.inventario %></td>
+				</tr>
+				<tr>
+					<td class="field-label"><strong>Tipo</strong></td>
+					<td><% if @equipo.tipo == 1 %>
+							Electrico
+						<% end %>
+						<% if @equipo.tipo == 2 %>
+							Electronico
+						<% end %>
+						<% if @equipo.tipo == 3 %>
+							Mecanico
+						<% end %>
+						<% if @equipo.tipo == 4 %>
+							Hidraulico
+						<% end %>
+						<% if @equipo.tipo == 5 %>
+							Neumatico
+						<% end %>
+					</td>
+				</tr>
+				<tr>
+					<td class="field-label"><strong>Clasificacion</strong></td>
+					<td>
+						<% if @equipo.clasificacion == 1 %>
+							I
+						<% end %>
+						<% if @equipo.clasificacion == 2 %>
+							IIA
+						<% end %>
+						<% if @equipo.clasificacion == 3 %>
+							IIB
+						<% end %>
+						<% if @equipo.clasificacion == 4 %>
+							III
+						<% end %>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<br />
+		<%= link_to edit_equipo_path(@equipo), :class => "btn btn-primary" do %>
+			<span class="glyphicon glyphicon-edit"></span> Editar
+		<% end %>
+	</div>
+</div>

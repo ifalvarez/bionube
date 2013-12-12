@@ -1,0 +1,60 @@
+<div class="container">
+	<ol class="breadcrumb">
+	  <li class="active">Equipos</li>
+	</ol>
+	
+<%= link_to new_equipo_path, :class => "btn btn-primary pull-right" do %>
+	<span class="glyphicon glyphicon-plus"></span> Añadir
+<% end %>
+
+<table class="table table-hover ">
+  <thead>
+    <tr>
+      <th>Equipo</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Serie</th>
+      <th>Inventario</th>
+      <th>Tipo</th>
+      <th>Clasificacion</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @equipos.each do |equipo| %>
+      <tr>
+        <td><%= link_to(equipo) do %>
+        		<%= equipo.equipo %></td>
+        	<% end %>	
+        <td><%= equipo.marca %></td>
+        <td><%= equipo.modelo %></td>
+        <td><%= equipo.serie %></td>
+        <td><%= equipo.inventario %></td>
+        <td><%= equipo.tipo %></td>
+        <td><%= equipo.clasificacion %></td>
+        <td><%= link_to(equipo) do %>
+        	  	<span class="glyphicon glyphicon-th-list"></span>
+			<% end %>
+		</td>
+        <td><%= link_to (edit_equipo_path(equipo)) do %>
+        		<span class="glyphicon glyphicon-edit"></span>
+			<% end %>
+        </td>
+        <td><%= link_to equipo, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        		<span class="glyphicon glyphicon-trash"></span>
+			<% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to new_equipo_path, :class => "btn btn-primary pull-right" do %>
+	<span class="glyphicon glyphicon-plus"></span> Añadir
+<% end %>
+</div>

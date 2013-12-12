@@ -1,5 +1,7 @@
 ManasyRails::Application.routes.draw do
   
+  resources :equipos
+
   root 'landing#index'
   
   get "landing/index"
