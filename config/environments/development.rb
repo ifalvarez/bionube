@@ -30,4 +30,13 @@ ManasyRails::Application.configure do
   config.assets.debug = false
   config.assets.logger = false
   
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'manasy',
+      :access_key_id => 'AKIAJFW7SS4GXSTQPJ3Q',
+      :secret_access_key => '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'
+    }
+  }
+  
 end
