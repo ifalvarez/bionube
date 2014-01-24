@@ -1,7 +1,9 @@
 ManasyRails::Application.routes.draw do
   
-  resources :equipos
-
+  resources :equipos do
+    resources :mantenimiento_preventivos
+  end
+  
   root 'landing#index'
   
   get "landing/index"
