@@ -20,7 +20,7 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-4">
-			<%= image_tag "equipment.jpg", :class => "img-thumbnail equipment-image" %>
+			<%= image_tag @equipo.avatar.url(:medium), :class => "img-thumbnail equipment-image" %>
 			<%= f.file_field :avatar %>
 		</div>
 		<div class="col-xs-4">
