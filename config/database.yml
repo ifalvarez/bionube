@@ -17,8 +17,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: manasy-rails_development
+  database: manasy
   pool: 5
+  host: localhost
   username: postgres
   password: 123456
 
