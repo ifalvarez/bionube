@@ -48,10 +48,11 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: manasy-rails_test
+  database: manasy_test
   pool: 5
-  username: manasy-rails
-  password:
+  host: localhost
+  username: postgres
+  password: 123456
 
 production:
   adapter: postgresql

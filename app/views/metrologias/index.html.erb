@@ -6,8 +6,8 @@
 	<div class="row">
 		<ul class="nav nav-tabs">
 			<li><%= link_to "Hoja de vida", @equipo %></li>
-			<li class="active"><a href="#">Mantenimiento</a></li>
-			<li><%= link_to "Metrologia", equipo_metrologias_path(@equipo) %></li>
+			<li><%= link_to "Mantenimiento", equipo_mantenimiento_preventivos_path(@equipo) %></li>
+			<li class="active"><a href="#">Metrología</a></li>
 		</ul>
 		<br />
 	</div>
@@ -24,19 +24,19 @@
   </thead>
 
   <tbody>
-    <% @mantenimiento_preventivos.each do |mantenimiento_preventivo| %>
+    <% @metrologias.each do |metrologia| %>
       <tr>
-        <td><%= mantenimiento_preventivo.fecha %></td>
-        <td><%= mantenimiento_preventivo.reporte %></td>
-        <td><%= link_to([@equipo, mantenimiento_preventivo]) do %>
+        <td><%= metrologia.fecha %></td>
+        <td><%= metrologia.reporte %></td>
+        <td><%= link_to([@equipo, metrologia]) do %>
         	  	<span class="glyphicon glyphicon-th-list"></span>
 			<% end %>
 		</td>
-        <td><%= link_to (edit_equipo_mantenimiento_preventivo_path(@equipo, mantenimiento_preventivo)) do %>
+        <td><%= link_to (edit_equipo_metrologia_path(@equipo, metrologia)) do %>
         		<span class="glyphicon glyphicon-edit"></span>
 			<% end %>
         </td>
-        <td><%= link_to [@equipo, mantenimiento_preventivo], method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <td><%= link_to [@equipo, metrologia], method: :delete, data: { confirm: 'Are you sure?' } do %>
         		<span class="glyphicon glyphicon-trash"></span>
 			<% end %>
         </td>
@@ -47,6 +47,6 @@
 
 <br>
 
-<%= link_to new_equipo_mantenimiento_preventivo_path, :class => "btn btn-primary pull-right" do %>
+<%= link_to new_equipo_metrologia_path, :class => "btn btn-primary pull-right" do %>
 	<span class="glyphicon glyphicon-plus"></span> Añadir
 <% end %>

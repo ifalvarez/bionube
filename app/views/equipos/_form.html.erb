@@ -11,11 +11,13 @@
     	</div>
 	<% end %>
 	<div class="row">
-		<ul class="nav nav-tabs">
-			<li class="active"><a href="#">Hoja de vida</a></li>
-			<li><a href="#">Mantenimiento</a></li>
-			<li><a href="#">Metrología</a></li>
-		</ul>
+		<% if action != "new" %>
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#">Hoja de vida</a></li>
+				<li><%= link_to "Mantenimiento", equipo_mantenimiento_preventivos_path(@equipo) %></li>
+				<li><%= link_to "Metrologia", equipo_metrologias_path(@equipo) %></li>
+			</ul>
+		<% end %>
 		<br />
 	</div>
 	<div class="row">
@@ -27,7 +29,7 @@
 			<table class="table">
 				<tr>
 					<td class="field-label"><strong><%= f.label :equipo %></strong></td>
-					<td><%= f.text_field :equipo, :class => "form-control" %></td>
+					<td><%= f.text_field :equipo, :class => "form-control" , :autofocus => true%></td>
 				</tr>
 				<tr>
 					<td class="field-label"><strong><%= f.label :marca %></strong></td>

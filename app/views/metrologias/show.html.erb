@@ -1,0 +1,33 @@
+<div class="container">
+	<ol class="breadcrumb">
+	  <li><%= link_to "Equipos", equipos_path %></li>
+	  <li class="active"><%= @equipo.equipo %></li>
+	</ol>
+	<div class="row">
+		<ul class="nav nav-tabs">
+			<li><%= link_to "Hoja de vida", @equipo %></li>
+			<li><%= link_to "Mantenimiento", equipo_mantenimiento_preventivos_path(@equipo) %></li>
+			<li class="active"><%= link_to "Metrologia", equipo_metrologias_path(@equipo) %></li>
+		</ul>
+		<br />
+	</div>
+	<div class="row">
+		<table class="table">
+			<tr>
+				<td class="field-label"><strong>Fecha:</strong></td>
+				<td><%= @metrologia.fecha %></td>
+			</tr>
+			<tr>
+				<td class="field-label"><strong>Reporte:</strong></td>
+				<td><%= @metrologia.reporte %></td>
+			</tr>
+		</table>
+	</div>
+	<div class="row">
+		<br />
+		<%= link_to edit_equipo_metrologia_path(@equipo, @metrologia), 
+				:class => "btn btn-primary" do %>
+			<span class="glyphicon glyphicon-edit"></span> Editar
+		<% end %>
+	</div>
+</div>

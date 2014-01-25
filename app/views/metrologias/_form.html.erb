@@ -1,10 +1,10 @@
-<%= form_for([@equipo, @mantenimiento_preventivo]) do |f| %>
-  <% if @mantenimiento_preventivo.errors.any? %>
+<%= form_for([@equipo, @metrologia]) do |f| %>
+  <% if @metrologia.errors.any? %>
     <div class="alert alert-danger alert-dismissable">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      		<h2><%= @mantenimiento_preventivo.errors.count %> Errores impidieron que este equipo se guardara:</h2>
+      		<h2><%= @metrologia.errors.count %> Errores impidieron que esta metrologia se guardara:</h2>
 			<ul>
-		    	<% @mantenimiento_preventivo.errors.full_messages.each do |msg| %>
+		    	<% @metrologia.errors.full_messages.each do |msg| %>
 		        	<li><%= msg %></li>
 		      	<% end %>
       		</ul>
@@ -13,8 +13,8 @@
   <div class="row">
 		<ul class="nav nav-tabs">
 			<li><%= link_to "Hoja de vida", @equipo %></li>
-			<li class="active"><%= link_to "Mantenimiento", equipo_mantenimiento_preventivos_path(@equipo) %></li>
-			<li><%= link_to "Metrologia", equipo_metrologias_path(@equipo) %></li>
+			<li><%= link_to "Mantenimiento", equipo_mantenimiento_preventivos_path(@equipo) %></li>
+			<li class="active"><%= link_to "Metrologia", equipo_metrologias_path(@equipo) %></li>
 		</ul>
 		<br />
 	</div>
