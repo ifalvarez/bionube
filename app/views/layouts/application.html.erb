@@ -25,21 +25,28 @@
           <%= link_to "Manasy", "/", :class => "navbar-brand" %>
         </div>
         <nav class="collapse navbar-collapse" role="navigation">
-          <ul class="nav navbar-nav">
-            <li>
-              <%= link_to "Equipos", equipos_path %>
-            </li>
-            <li>
-              <%= link_to "Ordenes", ordenes_path %>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <% if current_user %>
-            	<%= render "devise/sessions/current" %>
-            <% else %>
-            	<%= render "devise/sessions/new" %>
-            <% end %>
-	        </ul>
+          <% if current_user %>
+            <ul class="nav navbar-nav">
+              <li>
+                <%= link_to "Equipos", equipos_path %>
+              </li>
+              <li>
+                <%= link_to "Ordenes", ordenes_path %>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              	<li>
+                  <a href=#><%= current_user.email %></a>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, :method => :delete do %>
+                    <span class="glyphicon glyphicon-log-out"></span> Salir
+                  <% end %>
+                </li>
+            </ul>
+          <% else %>
+            <%= render "devise/sessions/new" %>
+          <% end %>
         </nav>
       </div>
     </header>
