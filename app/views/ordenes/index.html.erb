@@ -1,0 +1,35 @@
+<h1>Listing ordenes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Solicitante</th>
+      <th>Tipoorden</th>
+      <th>Actividadrealizada</th>
+      <th>Personarecibe</th>
+      <th>Valor</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ordenes.each do |orden| %>
+      <tr>
+        <td><%= orden.solicitante %></td>
+        <td><%= orden.tipoOrden %></td>
+        <td><%= orden.actividadRealizada %></td>
+        <td><%= orden.personaRecibe %></td>
+        <td><%= orden.valor %></td>
+        <td><%= link_to 'Show', orden %></td>
+        <td><%= link_to 'Edit', edit_orden_path(orden) %></td>
+        <td><%= link_to 'Destroy', orden, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Orden', new_orden_path %>

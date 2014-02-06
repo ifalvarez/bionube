@@ -45,6 +45,9 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 # Paperclip and AWS for images upload and store
 gem 'paperclip'
 gem 'aws-sdk'
+
+# Comments for models
+gem 'acts_as_commentable'
                           
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

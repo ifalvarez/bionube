@@ -1,5 +1,7 @@
 ManasyRails::Application.routes.draw do
   
+  resources :ordenes
+
   resources :equipos do
     resources :mantenimiento_preventivos
     resources :metrologias

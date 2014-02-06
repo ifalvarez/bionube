@@ -17,4 +17,5 @@
 
 ActiveSupport::Inflector.inflections do |inflect|
  inflect.irregular 'metrologia', 'metrologias'
+ inflect.irregular 'orden', 'ordenes'
 end

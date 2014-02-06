@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Solicitante:</strong>
+  <%= @orden.solicitante %>
+</p>
+
+<p>
+  <strong>Tipoorden:</strong>
+  <%= @orden.tipoOrden %>
+</p>
+
+<p>
+  <strong>Actividadrealizada:</strong>
+  <%= @orden.actividadRealizada %>
+</p>
+
+<p>
+  <strong>Personarecibe:</strong>
+  <%= @orden.personaRecibe %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @orden.valor %>
+</p>
+
+<%= link_to 'Edit', edit_orden_path(@orden) %> |
+<%= link_to 'Back', ordenes_path %>

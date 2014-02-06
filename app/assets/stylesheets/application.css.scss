@@ -15,9 +15,13 @@
 @import "twitter/bootstrap";
 
 body { 
-  padding-top: 50px; 
+  //padding-top: 50px; 
 }
 
 .messages {
   margin-top: 20px;  
+}
+
+.navbar-toggle .icon-bar{
+  background-color: black;
 }

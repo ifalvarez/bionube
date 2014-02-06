@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  solicitante: MyString
+  tipoOrden: 1
+  actividadRealizada: MyString
+  personaRecibe: MyString
+  valor: 9.99
+
+two:
+  solicitante: MyString
+  tipoOrden: 1
+  actividadRealizada: MyString
+  personaRecibe: MyString
+  valor: 9.99
