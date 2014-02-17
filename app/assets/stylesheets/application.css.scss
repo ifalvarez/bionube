@@ -15,7 +15,8 @@
 @import "twitter/bootstrap";
 
 body { 
-  //padding-top: 50px; 
+  //padding-top: 50px;
+  background-color: #E9EAEC;
 }
 
 .messages {
@@ -24,4 +25,16 @@ body {
 
 .navbar-toggle .icon-bar{
   background-color: black;
+}
+.panel{
+  background-color: transparent;
+  border: 0px;
+}
+
+header{
+  background-color: white;
+}
+
+a{
+  color: black;
 }

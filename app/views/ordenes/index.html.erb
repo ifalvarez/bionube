@@ -1,35 +1,37 @@
-<h1>Listing ordenes</h1>
+<div class="container">
 
-<table>
-  <thead>
-    <tr>
-      <th>Solicitante</th>
-      <th>Tipoorden</th>
-      <th>Actividadrealizada</th>
-      <th>Personarecibe</th>
-      <th>Valor</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @ordenes.each do |orden| %>
-      <tr>
-        <td><%= orden.solicitante %></td>
-        <td><%= orden.tipoOrden %></td>
-        <td><%= orden.actividadRealizada %></td>
-        <td><%= orden.personaRecibe %></td>
-        <td><%= orden.valor %></td>
-        <td><%= link_to 'Show', orden %></td>
-        <td><%= link_to 'Edit', edit_orden_path(orden) %></td>
-        <td><%= link_to 'Destroy', orden, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<ul class="list-group">
+  <% @ordenes.each do |orden| %>
+    <li class="list-group-item clearfix">
+      <div class="pull-left orderPic">
+        <%= link_to(orden.equipo) do %>
+          <%= image_tag orden.equipo.avatar.url(:medium), :class => "img-thumbnail equipment-image" %>
+        <% end %>
+      </div>
+      <div class="pull-left orderBody">
+        <div class="actions pull-right">
+          <%= link_to (edit_orden_path(orden)) do %>
+            <span class="glyphicon glyphicon-edit"></span> Editar
+          <% end %>
+        </div>
+        <div class="name">
+          <%= link_to(orden) do %>
+            <%= tipoOrdenHelper(orden.tipoOrden) %> para: <%= orden.equipo.equipo %>
+          <% end %>
+        </div>
+        <div class="description">
+          Esta fallando porque bla bla bla bla.
+        </div>
+        <div class="tags">
+          <span class="comentarios"><%= orden.comments.size() %> comentarios</span>
+          <span class="solicitante"><%= orden.solicitante %></span>
+          <span class="ubicacion">Sede centro - 308</span>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
 
 <%= link_to 'New Orden', new_orden_path %>
+
+</div>
