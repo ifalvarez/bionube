@@ -1,0 +1,14 @@
+<div class="container indicadores">
+  <div class="clearfix">
+    <span class="clearfix">COSTOS</span>
+    <%= pie_chart @costoMensual %>
+    <%= column_chart @costoMensual %>
+    <%= bar_chart @costoMensual %>
+  </div>
+  <div class="clearfix">
+    <span class="clearfix">REPUESTOS</span>
+    <%= pie_chart @tiempoDeReparacion %>
+    <%= column_chart @tiempoDeReparacion %>
+    <%= bar_chart @tiempoDeReparacion %>
+  </div>
+</div>

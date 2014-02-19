@@ -50,6 +50,9 @@ gem 'acts_as_commentable'
                           
 #Charts in javascript 
 gem "chartkick"
+
+#Fake data for tests
+gem 'factory_girl_rails'
                        
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
