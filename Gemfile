@@ -39,8 +39,7 @@ group :doc do
 end
 
 # Use twitter bootstrap
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-                              :github => 'anjlab/bootstrap-rails'
+gem 'bootstrap-sass'
 
 # Paperclip and AWS for images upload and store
 gem 'paperclip'
@@ -49,6 +48,9 @@ gem 'aws-sdk'
 # Comments for models
 gem 'acts_as_commentable'
                           
+#Charts in javascript 
+gem "chartkick"
+                       
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

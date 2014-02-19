@@ -20,3 +20,61 @@
 .equipment-form-control{
   height: 25px;
 }
+
+
+.field {
+  width: 130px;
+  padding: 16px 20px 10px 10px;
+  float: left;    
+  text-align: center;
+}
+    
+.equipos{
+  width: 100%;
+  .header{
+    width: 100%;
+    background-color: transparent;
+    .headerField{
+      @extend .field;
+      padding-bottom: 10px; 
+    }
+    .headerInfo{
+      width: 390px;
+      @extend .headerField;
+    }
+  }
+  .equipo {
+    background-color: white;
+    border: 1px solid #dddddd;
+    margin-bottom: -1px;
+    .item {
+      width: 100%;
+      .info {
+        @extend .field;
+        width: 390px;
+        text-align: left;
+        padding-top: 10px;
+        .pic{
+          margin-right: 10px;
+          float: left;
+          img{
+            height: 55px;
+            width: 55px;
+          }
+        }
+        .body{
+          float:left;
+        }
+      }
+      .actions{
+        @extend .field;
+        float: right;
+        width: initial;
+      }
+    }
+    .item-description{
+      
+    }
+  }
+}
+

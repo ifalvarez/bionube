@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/anjlab/bootstrap-rails.git
-  revision: 461121444e24cdf78357418bfca9f2b8a9a1c518
-  specs:
-    anjlab-bootstrap-rails (3.0.3.0)
-      railties (>= 3.0)
-      sass (>= 3.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -42,7 +34,10 @@ GEM
       uuidtools (~> 2.1)
     bcrypt-ruby (3.1.2)
     bcrypt-ruby (3.1.2-x86-mingw32)
+    bootstrap-sass (3.1.1.0)
+      sass (~> 3.2)
     builder (3.1.4)
+    chartkick (1.2.1)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.3)
@@ -152,8 +147,9 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_commentable
-  anjlab-bootstrap-rails!
   aws-sdk
+  bootstrap-sass
+  chartkick
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 1.2)

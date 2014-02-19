@@ -1,80 +1,61 @@
 <div class="container">
-	
-<table class="table table-hover ">
-  <thead>
-    <tr>
-      <th>Equipo</th>
-      <th>Marca</th>
-      <th>Modelo</th>
-      <th>Serie</th>
-      <th>Inventario</th>
-      <th>Tipo</th>
-      <th>Clasificacion</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @equipos.each do |equipo| %>
-      <tr>
-        <td><%= link_to(equipo) do %>
-        		<%= equipo.equipo %></td>
-        	<% end %>	
-        <td><%= equipo.marca %></td>
-        <td><%= equipo.modelo %></td>
-        <td><%= equipo.serie %></td>
-        <td><%= equipo.inventario %></td>
-        <td>
-			<% if equipo.tipo == 1 %>
-				Electrico
-			<% end %>
-			<% if equipo.tipo == 2 %>
-				Electronico
-			<% end %>
-			<% if equipo.tipo == 3 %>
-				Mecanico
-			<% end %>
-			<% if equipo.tipo == 4 %>
-				Hidraulico
-			<% end %>
-			<% if equipo.tipo == 5 %>
-				Neumatico
-			<% end %>
-		</td>
-        <td>
-			<% if equipo.clasificacion == 1 %>
-				I
-			<% end %>
-			<% if equipo.clasificacion == 2 %>
-				IIA
-			<% end %>
-			<% if equipo.clasificacion == 3 %>
-				IIB
-			<% end %>
-			<% if equipo.clasificacion == 4 %>
-				III
-			<% end %>
-		</td>
-        <td><%= link_to(equipo) do %>
-        	  	<span class="glyphicon glyphicon-th-list"></span>
-			<% end %>
-		</td>
-        <td><%= link_to (edit_equipo_path(equipo)) do %>
-        		<span class="glyphicon glyphicon-edit"></span>
-			<% end %>
-        </td>
-        <td><%= link_to equipo, method: :delete, data: { confirm: 'Are you sure?' } do %>
-        		<span class="glyphicon glyphicon-trash"></span>
-			<% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<div class="equipos">
+  <div class="header clearfix hidden-xs">
+    <div class="headerInfo">
+      EQUIPO
+    </div>
+    <div class="headerField">
+      MARCA
+    </div>
+    <div class="headerField">
+      MODELO
+    </div>
+    <div class="headerField">
+      SERIE
+    </div>
+    <div class="headerField">
+      INVENTARIO
+    </div>
+  </div>
+  <% @equipos.each do |equipo| %>
+    <div class="equipo clearfix">
+      <div class="item">
+        <div class="info">
+          <div class="pic">
+            <%= link_to(equipo) do %>
+              <%= image_tag equipo.avatar.url(:medium), :class => "img-thumbnail equipment-image" %>
+            <% end %>
+          </div>
+          <div class="body">
+            <div class="name">
+              <%= link_to(equipo) do %>
+                <%= equipo.equipo %>
+              <% end %>
+            </div>
+            <div class="tags">
+              <span><%= tipoEquipoHelper(equipo.tipo) %></span>
+              <span><%= clasificacionEquipoHelper(equipo.clasificacion) %></span>
+              <span class="ubicacion">Sede centro - 308</span>
+            </div>
+          </div>
+        </div>
+        <div class="field"><%= equipo.marca %></div>
+        <div class="field"><%= equipo.modelo %></div>
+        <div class="field"><%= equipo.serie %></div>
+        <div class="field"><%= equipo.inventario %></div>
+        <div class="actions">
+          <%= link_to (edit_equipo_path(equipo)) do %>
+            <span class="glyphicon glyphicon-edit"></span> Editar
+          <% end %>
+          <%= link_to equipo, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <span class="glyphicon glyphicon-trash"></span> Eliminar
+          <% end %>
+        </div>
+      </div>
+      <div class="item-description"></div>
+    </div>
+  <% end %>
 
 <%= link_to new_equipo_path, :class => "btn btn-primary pull-right" do %>
 	<span class="glyphicon glyphicon-plus"></span> Añadir
