@@ -4,7 +4,6 @@
 
 .field-label {
   background: #EEE;
-  width: 150px;
   padding-left: 20px !important;
 }
 
@@ -23,24 +22,16 @@
 
 
 .field {
-  width: 130px;
-  padding: 16px 20px 10px 10px;
-  float: left;    
+  padding-top: 16px;
   text-align: center;
 }
     
 .equipos{
-  width: 100%;
   .header{
-    width: 100%;
     background-color: transparent;
-    .headerField{
-      @extend .field;
-      padding-bottom: 10px; 
-    }
-    .headerInfo{
-      width: 390px;
-      @extend .headerField;
+    div{
+      padding-bottom: 10px;
+      text-align: center;
     }
   }
   .equipo {
@@ -48,28 +39,26 @@
     border: 1px solid #dddddd;
     margin-bottom: -1px;
     .item {
-      width: 100%;
       .info {
-        @extend .field;
-        width: 390px;
         text-align: left;
-        padding-top: 10px;
         .pic{
-          margin-right: 10px;
-          float: left;
+          text-align: right;
           img{
-            height: 55px;
+            //height: 55px;
             width: 55px;
           }
         }
         .body{
-          float:left;
+          .name{
+            font-weight: bold;
+            padding: 6px 0 2px 0;
+            font-size: 16px;
+          }
         }
+        
       }
       .actions{
         @extend .field;
-        float: right;
-        width: initial;
       }
     }
     .item-description{

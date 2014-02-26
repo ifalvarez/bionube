@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217211538) do
+ActiveRecord::Schema.define(version: 20140225214344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(version: 20140217211538) do
   add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
+  create_table "documentos", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "archivo_file_name"
+    t.string   "archivo_content_type"
+    t.integer  "archivo_file_size"
+    t.datetime "archivo_updated_at"
+    t.integer  "equipo_id"
+  end
+
+  add_index "documentos", ["equipo_id"], name: "index_documentos_on_equipo_id", using: :btree
+
   create_table "equipos", force: true do |t|
     t.string   "equipo"
     t.string   "marca"
@@ -46,8 +58,16 @@ ActiveRecord::Schema.define(version: 20140217211538) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "sede"
+    t.string   "ubicacion"
+    t.date     "fechaIngreso"
+    t.integer  "estado"
+    t.integer  "frecuenciaPreventivo"
+    t.integer  "frecuenciaMetrologia"
+    t.integer  "documentos_id"
   end
 
+  add_index "equipos", ["documentos_id"], name: "index_equipos_on_documentos_id", using: :btree
   add_index "equipos", ["user_id"], name: "index_equipos_on_user_id", using: :btree
 
   create_table "mantenimiento_preventivos", force: true do |t|

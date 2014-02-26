@@ -5,6 +5,7 @@ ManasyRails::Application.routes.draw do
   resources :equipos do
     resources :mantenimiento_preventivos
     resources :metrologias
+    resources :documentos
   end
   
   root 'landing#index'

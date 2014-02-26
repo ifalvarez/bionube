@@ -15,6 +15,7 @@ class EquiposController < ApplicationController
   # GET /equipos/1
   # GET /equipos/1.json
   def show
+    @documento = Documento.new
     if @equipo.user != current_user
       flash[:alert] = "No tienes acceso al equipo especificado"
       redirect_to equipos_path
@@ -93,6 +94,8 @@ class EquiposController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipo_params
-      params.require(:equipo).permit(:equipo, :marca, :modelo, :serie, :inventario, :tipo, :clasificacion, :avatar)
+      params.require(:equipo).permit(:equipo, :marca, :modelo,
+       :serie, :inventario, :tipo, :clasificacion, :avatar, :sede, :ubicacion,
+       :fechaIngreso, :estado, :frecuenciaPreventivo, :frecuenciaMetrologia)
     end
 end

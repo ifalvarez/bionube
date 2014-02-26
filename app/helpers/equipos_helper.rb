@@ -26,4 +26,21 @@ module EquiposHelper
       "III"
     end
   end
+  
+  def estadoEquipoHelper(estado)
+    case estado
+    when 1
+      "Disponible"
+    when 2
+      "En mantenimiento"
+    when 3
+      "En metrología"
+    when 4
+      "Fuera de servicio"
+    when 5  
+      "Dado de baja"
+    when 6
+      "En demostracion"
+    end
+  end
 end

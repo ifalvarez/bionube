@@ -70,6 +70,30 @@
 						</select>
 					</td>
 				</tr>
+				<tr>
+          <td class="field-label"><strong><%= f.label :sede %></strong></td>
+          <td><%= f.text_field :sede, :class => "form-control" %></td>
+        </tr>
+        <tr>
+          <td class="field-label"><strong><%= f.label :ubicacion %></strong></td>
+          <td><%= f.text_field :ubicacion, :class => "form-control" %></td>
+        </tr>
+        <tr>
+          <td class="field-label"><strong><%= f.label :estado %></strong></td>
+          <td><%= f.text_field :estado, :class => "form-control" %></td>
+        </tr>
+        <tr>
+          <td class="field-label"><strong><%= f.label :fechaIngreso %></strong></td>
+          <td><input type="date" class="form-control" name="equipo[fechaIngreso]" placeholder="dd/mm/aaaa"></td>
+        </tr>
+        <tr>
+          <td class="field-label"><strong><%= f.label :frecuenciaPreventivo %></strong></td>
+          <td><%= f.text_field :frecuenciaPreventivo, :class => "form-control" %></td>
+        </tr>
+        <tr>
+          <td class="field-label"><strong><%= f.label :frecuenciaMetrologia %></strong></td>
+          <td><%= f.text_field :frecuenciaMetrologia, :class => "form-control" %></td>
+        </tr>
 			</table>
 		</div>
 	</div>

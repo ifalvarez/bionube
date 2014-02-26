@@ -8,6 +8,10 @@
 		<br />
 	</div>
 	<div class="row">
+	  <%= link_to edit_equipo_path(@equipo), :class => "btn btn-default pull-right" do %>
+      <span class="glyphicon glyphicon-edit"></span> Editar
+    <% end %>
+
 		<div class="col-xs-4">
 			<%= image_tag @equipo.avatar.url(:medium), :class => "img-thumbnail equipment-image" %>
 		</div>
@@ -35,47 +39,73 @@
 				</tr>
 				<tr>
 					<td class="field-label"><strong>Tipo</strong></td>
-					<td><% if @equipo.tipo == 1 %>
-							Electrico
-						<% end %>
-						<% if @equipo.tipo == 2 %>
-							Electronico
-						<% end %>
-						<% if @equipo.tipo == 3 %>
-							Mecanico
-						<% end %>
-						<% if @equipo.tipo == 4 %>
-							Hidraulico
-						<% end %>
-						<% if @equipo.tipo == 5 %>
-							Neumatico
-						<% end %>
-					</td>
+					<td><%= tipoEquipoHelper(@equipo.tipo) %></td>
 				</tr>
 				<tr>
 					<td class="field-label"><strong>Clasificacion</strong></td>
-					<td>
-						<% if @equipo.clasificacion == 1 %>
-							I
-						<% end %>
-						<% if @equipo.clasificacion == 2 %>
-							IIA
-						<% end %>
-						<% if @equipo.clasificacion == 3 %>
-							IIB
-						<% end %>
-						<% if @equipo.clasificacion == 4 %>
-							III
-						<% end %>
-					</td>
+					<td><%= clasificacionEquipoHelper(@equipo.clasificacion) %></td>
 				</tr>
+				<tr>
+          <td class="field-label"><strong>Sede</strong></td>
+          <td><%= @equipo.sede %></td>
+        </tr>
+        <tr>
+          <td class="field-label"><strong>Ubicacion</strong></td>
+          <td><%= @equipo.ubicacion %></td>
+        </tr>
+        <tr>
+          <td class="field-label"><strong>Estado</strong></td>
+          <td><%= @equipo.estado %></td>
+        </tr>
+        <tr>
+          <td class="field-label"><strong>Fecha de ingreso</strong></td>
+          <td><%= @equipo.fechaIngreso %></td>
+        </tr>
+        <tr>
+          <td class="field-label"><strong>Frecuencia mantenimiento preventivo</strong></td>
+          <td><%= @equipo.frecuenciaPreventivo %></td>
+        </tr>
+        <tr>
+          <td class="field-label"><strong>Frecuencia metrologia</strong></td>
+          <td><%= @equipo.frecuenciaMetrologia %></td>
+        </tr>
 			</table>
 		</div>
 	</div>
 	<div class="row">
-		<br />
-		<%= link_to edit_equipo_path(@equipo), :class => "btn btn-primary" do %>
-			<span class="glyphicon glyphicon-edit"></span> Editar
-		<% end %>
+	  <div>DOCUMENTOS</div>
+	  <ul class="list-group col-xs-4">
+        <% @equipo.documentos.each do |documento| %>
+          <li class="list-group-item">
+            <%= link_to documento.archivo_file_name, documento.archivo.url() %>
+            <%= link_to [@equipo, documento], method: :delete, data: { confirm: 'Are you sure?' }, class: "pull-right" do %>
+              <span class="glyphicon glyphicon-trash"></span>
+            <% end %>
+          </li>
+        <% end %>
+    </ul>
+  </div>
+  <div class="row">
+    <%= form_for [@equipo, @documento], :html => {:class => "form-inline"} do |f| %>
+      <% if @documento.errors.any? %>
+        <div class="alert alert-danger alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <h2><%= @documento.errors.count %> Errores impidieron que este documento se guardara:</h2>
+          <ul>
+              <% @documento.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+          </div>
+      <% end %>
+      
+      <div class="form-group">
+        <%= f.label :archivo, :class => "sr-only" %>
+        <%= f.file_field :archivo, :class => "form-control"%>
+      </div>
+      <button type="submit" class="btn btn-default">
+        <span class="glyphicon glyphicon-upload"></span> Subir
+      </button>
+    <% end %>
 	</div>
 </div>
