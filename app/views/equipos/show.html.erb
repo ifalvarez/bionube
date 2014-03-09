@@ -1,82 +1,61 @@
 <div class="container">
-	<div class="row">
-		<ul class="nav nav-tabs">
-			<li class="active"><a href="#">Hoja de vida</a></li>
-			<li><%= link_to "Mantenimiento", equipo_mantenimiento_preventivos_path(@equipo) %></li>
-			<li><%= link_to "Metrologia", equipo_metrologias_path(@equipo) %></li>
-		</ul>
-		<br />
-	</div>
-	<div class="row">
-	  <%= link_to edit_equipo_path(@equipo), :class => "btn btn-default pull-right" do %>
-      <span class="glyphicon glyphicon-edit"></span> Editar
-    <% end %>
-    <%= link_to new_equipo_orden_path(@equipo), :class => "btn btn-default pull-right" do %>
-      <span class="glyphicon glyphicon-wrench"></span> Generar orden
-    <% end %>
+	<div class="row manasyPanel">
+	  <div class="equipoActions">
+  	  <%= link_to edit_equipo_path(@equipo), :class => "btn btn-default pull-right" do %>
+        <span class="glyphicon glyphicon-edit"></span> Editar
+      <% end %>
+      <%= link_to new_equipo_orden_path(@equipo), :class => "btn btn-default pull-right" do %>
+        <span class="glyphicon glyphicon-wrench"></span> Generar orden
+      <% end %>
+    </div>
 
-		<div class="col-xs-4">
-			<%= image_tag @equipo.avatar.url(:medium), :class => "img-thumbnail equipment-image" %>
-		</div>
-		<div class="col-xs-4">
-			<table class="table">
-				<tr>
-					<td class="field-label"><strong>Equipo</strong></td>
-					<td><%= @equipo.equipo %></td>
-				</tr>
-				<tr>
-					<td class="field-label"><strong>Marca</strong></td>
-					<td><%= @equipo.marca %></td>
-				</tr>
-				<tr>
-					<td class="field-label"><strong>Modelo</strong></td>
-					<td><%= @equipo.modelo %></td>
-				</tr>
-				<tr>
-					<td class="field-label"><strong>Serie</strong></td>
-					<td><%= @equipo.serie %></td>
-				</tr>
-				<tr>
-					<td class="field-label"><strong>Inventario</strong></td>
-					<td><%= @equipo.inventario %></td>
-				</tr>
-				<tr>
-					<td class="field-label"><strong>Tipo</strong></td>
-					<td><%= tipoEquipoHelper(@equipo.tipo) %></td>
-				</tr>
-				<tr>
-					<td class="field-label"><strong>Clasificacion</strong></td>
-					<td><%= clasificacionEquipoHelper(@equipo.clasificacion) %></td>
-				</tr>
-				<tr>
-          <td class="field-label"><strong>Sede</strong></td>
-          <td><%= @equipo.sede %></td>
-        </tr>
-        <tr>
-          <td class="field-label"><strong>Ubicacion</strong></td>
-          <td><%= @equipo.ubicacion %></td>
-        </tr>
-        <tr>
-          <td class="field-label"><strong>Estado</strong></td>
-          <td><%= @equipo.estado %></td>
-        </tr>
-        <tr>
-          <td class="field-label"><strong>Fecha de ingreso</strong></td>
-          <td><%= @equipo.fechaIngreso %></td>
-        </tr>
-        <tr>
-          <td class="field-label"><strong>Frecuencia mantenimiento preventivo</strong></td>
-          <td><%= @equipo.frecuenciaPreventivo %></td>
-        </tr>
-        <tr>
-          <td class="field-label"><strong>Frecuencia metrologia</strong></td>
-          <td><%= @equipo.frecuenciaMetrologia %></td>
-        </tr>
-			</table>
-		</div>
+		<div class="col-xs-3 text-right">
+			<%= image_tag @equipo.avatar.url(:medium), :class => "img-thumbnail equipoImage" %>
+		</div>	
+		<div class="col-xs-8">
+  		<div class="col-xs-12 equipoTitle">
+  		  <strong><%= @equipo.equipo %></strong>
+  		  <span class="equipoUbicacion">
+          <span><%= @equipo.sede %></span>
+          <span><%= @equipo.ubicacion %></span>
+          <span><%= @equipo.estado %></span>
+        </span>
+  		</div>
+		  
+  		<div class="col-xs-4 equipoProperty">
+        <span class="equipoPropertyName">Marca</span> <%= @equipo.marca %>
+      </div>
+      <div class="col-xs-4 equipoProperty">
+        <span class="equipoPropertyName">Modelo</span> <%= @equipo.modelo %>
+      </div>
+      <div class="col-xs-4 equipoProperty">
+        <span class="equipoPropertyName">Serie</span> <%= @equipo.serie %>
+      </div>
+      <div class="col-xs-4 equipoProperty">
+        <span class="equipoPropertyName">Inventario</span> <%= @equipo.inventario %>
+      </div>
+      <div class="col-xs-4 equipoProperty">
+        <span class="equipoPropertyName">Tipo</span> <%= tipoEquipoHelper(@equipo.tipo) %>
+      </div>
+      <div class="col-xs-4 equipoProperty">
+        <span class="equipoPropertyName">Clasificacion</span> <%= clasificacionEquipoHelper(@equipo.clasificacion) %>
+      </div>
+      <div class="col-xs-4 equipoProperty">
+        <span class="equipoPropertyName">Fecha Ingreso</span> <%= @equipo.fechaIngreso %>
+      </div>
+      <div class="col-xs-4 equipoProperty">
+        <span class="equipoPropertyName">Preventivo</span> <%= @equipo.frecuenciaPreventivo %> meses
+      </div>
+      <div class="col-xs-4 equipoProperty">
+        <span class="equipoPropertyName">Metrología</span> <%= @equipo.frecuenciaMetrologia %> meses
+      </div>
+      
+    </div>
 	</div>
+	<div class="row manasyHeader">
+    DOCUMENTOS
+  </div>
 	<div class="row">
-	  <div>DOCUMENTOS</div>
 	  <ul class="list-group col-xs-4">
         <% @equipo.documentos.each do |documento| %>
           <li class="list-group-item">

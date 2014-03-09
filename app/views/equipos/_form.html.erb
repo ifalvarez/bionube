@@ -84,7 +84,7 @@
     <div class="form-group">
       <%= f.label :fechaIngreso,"Fecha Ingreso", :class => "col-xs-3 control-label" %>
       <div class="col-xs-7">
-        <input type="date" class="form-control" name="equipo[fechaIngreso]" placeholder="dd/mm/aaaa">
+        <%= f.date_field :fechaIngreso, :class => "form-control" %>
       </div>
     </div>
     <div class="form-group">
