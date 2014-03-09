@@ -17,7 +17,7 @@
   </div>
 
   <% @equipos.each do |equipo| %>
-  <div class="equipo row">
+  <div class="equipo row manasyPanel">
     <div class="col-xs-12">
       <div class="item row">
         <div class="info col-xs-7">
@@ -56,9 +56,6 @@
         <div class="actions col-xs-2">
           <%= link_to (edit_equipo_path(equipo)) do %>
           <span class="glyphicon glyphicon-edit"></span> Editar
-          <% end %>
-          <%= link_to equipo, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <span class="glyphicon glyphicon-trash"></span> Eliminar
           <% end %>
         </div>
       </div>

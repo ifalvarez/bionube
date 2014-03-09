@@ -39,6 +39,7 @@ class EquiposController < ApplicationController
   # POST /equipos.json
   def create
     @equipo = current_user.equipos.create(equipo_params)
+    @equipo.estado = 1;
     respond_to do |format|
       if @equipo.save
         format.html { redirect_to @equipo, notice: 'Equipo was successfully created.' }
