@@ -1,6 +1,78 @@
-<h1>Editing orden</h1>
+<div class="container">
+  <%= render partial: "equipos/equipo", object: @equipo, as: "equipo" %>
+  <%= render partial: "orden", object: @orden, as: "orden" %>
+  <%= form_for [@equipo, @orden], :html => {:class => "form-horizontal editarOrdenForm"} do |f| %>
+    <% if @orden.errors.any? %>
+      <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h2><%= @orden.errors.count %> Errores impidieron que esta orden se guardara:</h2>
+        <ul>
+            <% @orden.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+        </div>
+    <% end %>
+    
+    <% case (@orden.estado)
+      when 1 %>
+        <div class="form-group">
+          <%= f.label :actividadRealizada, :class => "col-sm-2 control-label" %>
+          <div class="col-sm-10">
+            <%= f.text_field :actividadRealizada, :class => "form-control", :placeholder => "ej: se cambió el lente" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :tecnico_id, :class => "col-sm-2 control-label" %>
+          <div class="col-sm-10">
+            <%= f.select(:tecnico_id, options_from_collection_for_select(Tecnico.all, :id, :nombre), {}, 
+              {:class => "form-control"} ) %>
+          </div>
+        </div>
+    <% when 3 %>
+      <div class="form-group">
+        <%= f.label :firma, :class => "col-sm-2 control-label" %>
+        <div class="col-sm-10 sig">
+            <canvas class="pad" width="200" height="55"></canvas>
+            <button type="submit" class="btn btn-default clearButton">
+              <span class="glyphicon glyphicon-refresh"></span>
+            </button>
+          <%= f.hidden_field :firma %>
+        </div>
+      </div>
+         
+    <% end %>
 
-<%= render 'form' %>
+  <div class="form-group">
+    <label for="comentario" class="col-sm-2 control-label">Comentario</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" name="comentario" placeholder="Observaciones"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">
+        <span class="glyphicon glyphicon-save"></span> Enviar
+      </button>
+    </div>
+  </div>
+  <% end %>
+  
+  
+</div>
 
-<%= link_to 'Show', @orden %> |
-<%= link_to 'Back', ordenes_path %>
+
+<%= javascript_include_tag "jquery.signaturepad.min.js" %>
+<%= javascript_include_tag "json2.min.js" %>
+<%= stylesheet_link_tag    "jquery.signaturepad.css" %>
+    
+<script>
+  $(document).ready(function() {
+    var options = {
+      drawOnly : true,
+      output: "#orden_firma",
+      validateFields: false
+    };
+    var signature = $('.editarOrdenForm').signaturePad(options);
+  });
+</script>

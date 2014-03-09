@@ -25,7 +25,24 @@
   padding-top: 16px;
   text-align: center;
 }
-    
+
+.manasyPanel{
+  background-color: white;
+  border: 1px solid #dddddd;
+  padding: 28px 30px
+}
+
+.manasyHeader{
+  font-size: 1.25em;
+  font-weight: bold;
+  margin: 30px 30px 15px;
+}
+
+.manasyText{
+  margin: 10px 20px;
+  color: #666;
+}
+
 .equipos{
   .header{
     background-color: transparent;
@@ -34,36 +51,39 @@
       text-align: center;
     }
   }
-  .equipo {
-    background-color: white;
-    border: 1px solid #dddddd;
-    margin-bottom: -1px;
-    .item {
-      .info {
-        text-align: left;
-        .pic{
-          text-align: right;
-          img{
-            //height: 55px;
-            width: 55px;
-          }
+}
+
+.equipo {
+  @extend .manasyPanel;
+  padding: 10px 0px;
+  margin-bottom: -1px;
+  min-height: 63px;
+  .item {
+    .info {
+      text-align: left;
+      .pic{
+        text-align: right;
+        img{
+          //height: 55px;
+          width: 55px;
+          margin-top: 3px;
         }
-        .body{
-          .name{
-            font-weight: bold;
-            padding: 6px 0 2px 0;
-            font-size: 16px;
-          }
+      }
+      .body{
+        .name{
+          font-weight: bold;
+          padding: 6px 0 2px 0;
+          font-size: 16px;
         }
-        
       }
-      .actions{
-        @extend .field;
-      }
-    }
-    .item-description{
       
     }
+    .actions{
+      @extend .field;
+    }
+  }
+  .item-description{
+    
   }
 }
 

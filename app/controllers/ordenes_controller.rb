@@ -1,5 +1,6 @@
 class OrdenesController < ApplicationController
   before_action :set_orden, only: [:show, :edit, :update, :destroy]
+  before_action :set_equipo, only: [:index, :show, :edit, :update, :new, :create]
 
   # GET /ordenes
   # GET /ordenes.json
@@ -25,14 +26,11 @@ class OrdenesController < ApplicationController
   # POST /ordenes.json
   def create
     @orden = Orden.new(orden_params)
-    comentario = params[:comentario].strip
+    @orden.estado = 1
+    @orden.equipo_id = @equipo.id
     respond_to do |format|
       if @orden.save
-        if comentario != ""
-          comment = @orden.comments.create
-          comment.comment = comentario
-          comment.save
-        end
+        save_comment
         format.html { redirect_to @orden, notice: 'Orden was successfully created.' }
         format.json { render action: 'show', status: :created, location: @orden }
       else
@@ -45,8 +43,15 @@ class OrdenesController < ApplicationController
   # PATCH/PUT /ordenes/1
   # PATCH/PUT /ordenes/1.json
   def update
+    updateParameters = orden_params
+    case (@orden.estado)
+    when 1
+      updateParameters[:estado] = 3
+      updateParameters[:fechaEjecucion] = Date.current()
+    end
     respond_to do |format|
-      if @orden.update(orden_params)
+      if @orden.update(updateParameters)
+        save_comment
         format.html { redirect_to @orden, notice: 'Orden was successfully updated.' }
         format.json { head :no_content }
       else
@@ -68,6 +73,15 @@ class OrdenesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_equipo
+      if params[:equipo_id]
+        @equipo = Equipo.find(params[:equipo_id])
+      elsif @orden
+        @equipo = @orden.equipo
+      end
+    end
+    
+    # Use callbacks to share common setup or constraints between actions.
     def set_orden
       @orden = Orden.find(params[:id])
     end
@@ -75,6 +89,15 @@ class OrdenesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def orden_params
       params.require(:orden).permit(:solicitante, :tipoOrden, :actividadRealizada, 
-          :personaRecibe, :valor, :falla, :fecha, :equipo_id)
+          :personaRecibe, :valor, :falla, :fechaEjecucion, :tecnico_id, :firma)
+    end
+    
+    def save_comment
+      comentario = params[:comentario].strip
+        if comentario != ""
+          comment = @orden.comments.create
+          comment.comment = comentario
+          comment.save
+        end
     end
 end

@@ -1,0 +1,48 @@
+<div class="equipo row">
+  <div class="col-xs-12">
+    <div class="item row">
+      <div class="info col-xs-7">
+        <div class="row">
+          <div class="pic col-xs-2">
+            <%= link_to(equipo) do %>
+            <%= image_tag equipo.avatar.url(:medium), :class => "img-thumbnail" %>
+            <% end %>
+          </div>
+          <div class="body col-xs-10">
+            <div class="name">
+              <%= link_to(equipo) do %>
+              <%= equipo.equipo %>
+              <% end %>
+            </div>
+            <div class="tags">
+              <span><%= tipoEquipoHelper(equipo.tipo) %></span>
+              <span><%= clasificacionEquipoHelper(equipo.clasificacion) %></span>
+              <span class="ubicacion"><%= equipo.sede %> - <%= equipo.ubicacion %></span>
+              <span><%= equipo.marca %></span>
+              <span><%= equipo.modelo %></span>
+              <span><%= equipo.serie %></span>
+              <span><%= equipo.fechaIngreso %></span>
+              <span><%= equipo.frecuenciaPreventivo %></span>
+              <span><%= equipo.frecuenciaMetrologia %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field col-xs-1">
+        <%= equipo.inventario %>
+      </div>
+      <div class="field col-xs-2">
+        <%= estadoEquipoHelper(equipo.estado) %>
+      </div>
+      <div class="actions col-xs-2">
+        <%= link_to (edit_equipo_path(equipo)) do %>
+        <span class="glyphicon glyphicon-edit"></span> Editar
+        <% end %>
+        <%= link_to equipo, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <span class="glyphicon glyphicon-trash"></span> Eliminar
+        <% end %>
+      </div>
+    </div>
+    <div class="item-description row"></div>
+  </div>
+</div>

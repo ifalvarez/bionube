@@ -1,4 +1,9 @@
 <div class="container equipos">
+  
+  <%= link_to new_equipo_path, :class => "btn btn-default pull-right anadir" do %>
+    <span class="glyphicon glyphicon-plus"></span> Añadir
+  <% end %>
+
   <div class="header row hidden-xs">
     <div class="col-xs-7">
       EQUIPO
@@ -61,9 +66,6 @@
     </div>
   </div>
   <% end %>
-
-  <%= link_to new_equipo_path, :class => "btn btn-primary pull-right" do %>
-  <span class="glyphicon glyphicon-plus"></span> Añadir
-  <% end %>
+  
 </div>
 

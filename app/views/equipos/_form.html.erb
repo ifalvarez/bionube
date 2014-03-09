@@ -1,105 +1,108 @@
-<%= form_for(@equipo) do |f| %>
+<%= form_for @equipo, :html => {:class => "form-horizontal"} do |f| %>
 	<% if @equipo.errors.any? %>
 		<div class="alert alert-danger alert-dismissable">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      		<h2><%= @equipo.errors.count %> Errores impidieron que este equipo se guardara:</h2>
+  		<h2><%= @equipo.errors.count %> Errores impidieron que este equipo se guardara:</h2>
 			<ul>
-		    	<% @equipo.errors.full_messages.each do |msg| %>
-		        	<li><%= msg %></li>
-		      	<% end %>
-      		</ul>
+    	 <% @equipo.errors.full_messages.each do |msg| %>
+        	<li><%= msg %></li>
+      	<% end %>
+  		</ul>
     	</div>
 	<% end %>
 	<div class="row">
-		<% if action != "new" %>
-			<ul class="nav nav-tabs">
-				<li class="active"><a href="#">Hoja de vida</a></li>
-				<li><%= link_to "Mantenimiento", equipo_mantenimiento_preventivos_path(@equipo) %></li>
-				<li><%= link_to "Metrologia", equipo_metrologias_path(@equipo) %></li>
-			</ul>
-		<% end %>
-		<br />
+  	<div class="form-group">
+      <%= f.label :equipo, :class => "col-xs-3 control-label" %>
+      <div class="col-xs-7">
+        <%= f.text_field :equipo, :class => "form-control" , :autofocus => true%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :avatar, "Foto", :class => "col-xs-3 control-label" %>
+      <div class="col-xs-7">
+        <%= f.file_field :avatar %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :marca, :class => "col-xs-3 control-label" %>
+      <div class="col-xs-7">
+        <%= f.text_field :marca, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :modelo, :class => "col-xs-3 control-label" %>
+      <div class="col-xs-7">
+        <%= f.text_field :modelo, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :serie, :class => "col-xs-3 control-label" %>
+      <div class="col-xs-7">
+        <%= f.text_field :serie, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :inventario, :class => "col-xs-3 control-label" %>
+      <div class="col-xs-7">
+        <%= f.text_field :inventario, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :tipo, :class => "col-xs-3 control-label" %>
+      <div class="col-xs-7">
+        <select id="equipo_tipo" name="equipo[tipo]" class="form-control">
+          <option value="1">Electrico</option>
+          <option value="2">Electronico</option> <option value="3">Mecanico</option>
+          <option value="4">Hidraulico</option>
+          <option value="5">Neumatico</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :clasificacion, :class => "col-xs-3 control-label" %>
+      <div class="col-xs-7">
+        <select id="equipo_clasificacion" name="equipo[clasificacion]" class="form-control">
+          <option value="1">I</option>
+          <option value="2">IIA</option>
+          <option value="3">IIB</option>
+          <option value="4">III</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :sede, :class => "col-xs-3 control-label" %>
+      <div class="col-xs-7">
+        <%= f.text_field :sede, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :ubicacion, :class => "col-xs-3 control-label" %>
+      <div class="col-xs-7">
+        <%= f.text_field :ubicacion, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :fechaIngreso,"Fecha Ingreso", :class => "col-xs-3 control-label" %>
+      <div class="col-xs-7">
+        <input type="date" class="form-control" name="equipo[fechaIngreso]" placeholder="dd/mm/aaaa">
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :frecuenciaPreventivo, "Frecuencia Mantenimiento Preventivo", :class => "col-xs-3 control-label" %>
+      <div class="col-xs-7">
+        <%= f.text_field :frecuenciaPreventivo, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :frecuenciaMetrologia, "Frecuencia Metrología", :class => "col-xs-3 control-label" %>
+      <div class="col-xs-7">
+        <%= f.text_field :frecuenciaMetrologia, :class => "form-control" %>
+      </div>
+    </div>
 	</div>
 	<div class="row">
-		<div class="col-xs-4">
-			<%= image_tag @equipo.avatar.url(:medium), :class => "img-thumbnail equipment-image" %>
-			<%= f.file_field :avatar %>
-		</div>
-		<div class="col-xs-4">
-			<table class="table">
-				<tr>
-					<td class="field-label"><strong><%= f.label :equipo %></strong></td>
-					<td><%= f.text_field :equipo, :class => "form-control" , :autofocus => true%></td>
-				</tr>
-				<tr>
-					<td class="field-label"><strong><%= f.label :marca %></strong></td>
-					<td><%= f.text_field :marca, :class => "form-control" %></td>
-				</tr>
-				<tr>
-					<td class="field-label"><strong><%= f.label :modelo %></strong></td>
-					<td><%= f.text_field :modelo, :class => "form-control" %></td>
-				</tr>
-				<tr>
-					<td class="field-label"><strong><%= f.label :serie %></strong></td>
-					<td><%= f.text_field :serie, :class => "form-control" %></td>
-				</tr>
-				<tr>
-					<td class="field-label"><strong><%= f.label :inventario %></strong></td>
-					<td><%= f.text_field :inventario, :class => "form-control" %></td>
-				</tr>
-				<tr>
-					<td class="field-label"><strong><%= f.label :tipo %></strong></td>
-					<td>
-						<select id="equipo_tipo" name="equipo[tipo]" class="form-control">
-							<option value="1">Electrico</option>
-							<option value="2">Electronico</option>
-							<option value="3">Mecanico</option>
-							<option value="4">Hidraulico</option>
-							<option value="5">Neumatico</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td class="field-label"><strong><%= f.label :clasificacion %></strong></td>
-					<td>
-						<select id="equipo_clasificacion" name="equipo[clasificacion]" class="form-control">
-							<option value="1">I</option>
-							<option value="2">IIA</option>
-							<option value="3">IIB</option>
-							<option value="4">III</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-          <td class="field-label"><strong><%= f.label :sede %></strong></td>
-          <td><%= f.text_field :sede, :class => "form-control" %></td>
-        </tr>
-        <tr>
-          <td class="field-label"><strong><%= f.label :ubicacion %></strong></td>
-          <td><%= f.text_field :ubicacion, :class => "form-control" %></td>
-        </tr>
-        <tr>
-          <td class="field-label"><strong><%= f.label :estado %></strong></td>
-          <td><%= f.text_field :estado, :class => "form-control" %></td>
-        </tr>
-        <tr>
-          <td class="field-label"><strong><%= f.label :fechaIngreso %></strong></td>
-          <td><input type="date" class="form-control" name="equipo[fechaIngreso]" placeholder="dd/mm/aaaa"></td>
-        </tr>
-        <tr>
-          <td class="field-label"><strong><%= f.label :frecuenciaPreventivo %></strong></td>
-          <td><%= f.text_field :frecuenciaPreventivo, :class => "form-control" %></td>
-        </tr>
-        <tr>
-          <td class="field-label"><strong><%= f.label :frecuenciaMetrologia %></strong></td>
-          <td><%= f.text_field :frecuenciaMetrologia, :class => "form-control" %></td>
-        </tr>
-			</table>
-		</div>
-	</div>
-	<div class="row">
 		<br />
-		<button type="submit" class="btn btn-primary">
+		<button type="submit" class="btn btn-default center-block">
 			<span class="glyphicon glyphicon-save"></span> Guardar
 		</button>
 	</div>

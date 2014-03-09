@@ -9,4 +9,19 @@ module OrdenesHelper
       "Metrología"
     end
   end
+  
+  def estadoOrdenHelper(estado)
+    case estado
+    when 1
+      "Nueva"
+    when 2
+      "Asignada"
+    when 3
+      "Atendida"
+    when 4
+      "Recibida"
+    when 5
+      "Cerrada"
+    end
+  end
 end

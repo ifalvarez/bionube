@@ -6,11 +6,12 @@
     <meta name="description" content="Manasy un administrador de equipos biomedicos facil de usar y de bajo costo.">
     <meta name="keywords" content="equipo, biomedico, mantenimiento, hoja de vida, metrologia, orden de servicio">
     <meta name="author" content="Ivan Alvarez, Tatiana Chavarria">
-    <title>Manasy</title>
+    <title>BioNube</title>
     <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
   </head>
   <body>
     <!-- Header -->
@@ -23,7 +24,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to "Manasy", "/", :class => "navbar-brand" %>
+          <%= link_to "/", :class => "brand" do %>
+            <%= image_tag "logo.jpg", :class => "logoImage" %> BioNube
+          <% end %>
         </div>
         <nav class="collapse navbar-collapse" role="navigation">
           <% if current_user %>
@@ -36,6 +39,9 @@
               </li>
               <li>
                 <%= link_to "INDICADORES", indicadores_path %>
+              </li>
+              <li>
+                <%= link_to "TECNICOS", tecnicos_path %>
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

@@ -1,0 +1,31 @@
+<div class="manasyHeader">SOLICITUD</div>
+<div class="row manasyPanel">
+  <div class="col-xs-12">
+    <strong><%= orden.solicitante %>:</strong><br/>
+    <div class="manasyText">
+      <% case orden.tipoOrden 
+        when 1%>
+        <%= orden.falla %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="manasyHeader">ACTIVIDAD REALIZADA</div>
+<div class="row manasyPanel">
+  <div class="col-xs-12">
+    <strong><%= orden.tecnico.nombre %>:</strong><br/>
+    <div class="manasyText">
+      <%= orden.actividadRealizada %>
+    </div>
+  </div>
+</div>
+
+<div class="manasyHeader">COMENTARIOS</div>
+<div class="row">
+  <ul class="list-group">
+    <% @orden.comments.each do |comentario| %>
+      <li class="list-group-item readable"><%= comentario.comment %></li>
+    <% end %>
+  </ul>
+</div>

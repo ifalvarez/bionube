@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225214344) do
+ActiveRecord::Schema.define(version: 20140304151742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,12 +98,17 @@ ActiveRecord::Schema.define(version: 20140225214344) do
     t.decimal  "valor"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "falla"
+    t.text     "falla"
     t.date     "fecha_programada"
     t.integer  "equipo_id"
+    t.integer  "estado"
+    t.integer  "tecnico_id"
+    t.date     "fechaEjecucion"
+    t.string   "firma"
   end
 
   add_index "ordenes", ["equipo_id"], name: "index_ordenes_on_equipo_id", using: :btree
+  add_index "ordenes", ["tecnico_id"], name: "index_ordenes_on_tecnico_id", using: :btree
 
   create_table "proveedors", force: true do |t|
     t.string   "nombre"
@@ -119,9 +124,9 @@ ActiveRecord::Schema.define(version: 20140225214344) do
   end
 
   create_table "tecnicos", force: true do |t|
-    t.string   "nombre"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "nombre"
   end
 
   create_table "users", force: true do |t|

@@ -1,11 +1,14 @@
 ManasyRails::Application.routes.draw do
   
+  resources :tecnicos
+
   resources :ordenes
 
   resources :equipos do
     resources :mantenimiento_preventivos
     resources :metrologias
     resources :documentos
+    resources :ordenes
   end
   
   root 'landing#index'

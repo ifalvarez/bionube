@@ -11,6 +11,9 @@
 	  <%= link_to edit_equipo_path(@equipo), :class => "btn btn-default pull-right" do %>
       <span class="glyphicon glyphicon-edit"></span> Editar
     <% end %>
+    <%= link_to new_equipo_orden_path(@equipo), :class => "btn btn-default pull-right" do %>
+      <span class="glyphicon glyphicon-wrench"></span> Generar orden
+    <% end %>
 
 		<div class="col-xs-4">
 			<%= image_tag @equipo.avatar.url(:medium), :class => "img-thumbnail equipment-image" %>
