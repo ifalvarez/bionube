@@ -91,7 +91,7 @@ class OrdenesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def orden_params
       params.require(:orden).permit(:solicitante, :tipoOrden, :actividadRealizada, 
-          :personaRecibe, :valor, :falla, :fechaEjecucion, :tecnico_id, :firma)
+          :personaRecibe, :valor, :falla, :fechaEjecucion, :tecnico_id, :firma, :fecha_programada)
     end
     
     def save_comment
