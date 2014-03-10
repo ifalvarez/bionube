@@ -28,7 +28,7 @@ class TecnicosController < ApplicationController
 
     respond_to do |format|
       if @tecnico.save
-        format.html { redirect_to @tecnico, notice: 'Tecnico was successfully created.' }
+        format.html { redirect_to tecnicos_url, notice: 'Tecnico was successfully created.' }
         format.json { render action: 'show', status: :created, location: @tecnico }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class TecnicosController < ApplicationController
   def update
     respond_to do |format|
       if @tecnico.update(tecnico_params)
-        format.html { redirect_to @tecnico, notice: 'Tecnico was successfully updated.' }
+        format.html { redirect_to tecnicos_url, notice: 'Tecnico was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
