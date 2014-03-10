@@ -1,4 +1,4 @@
-<div class="equipo row">
+<div class="equipo row manasyPanel">
   <div class="col-xs-12">
     <div class="item row">
       <div class="info col-xs-7">
@@ -15,15 +15,7 @@
               <% end %>
             </div>
             <div class="tags">
-              <span><%= tipoEquipoHelper(equipo.tipo) %></span>
-              <span><%= clasificacionEquipoHelper(equipo.clasificacion) %></span>
               <span class="ubicacion"><%= equipo.sede %> - <%= equipo.ubicacion %></span>
-              <span><%= equipo.marca %></span>
-              <span><%= equipo.modelo %></span>
-              <span><%= equipo.serie %></span>
-              <span><%= equipo.fechaIngreso %></span>
-              <span><%= equipo.frecuenciaPreventivo %></span>
-              <span><%= equipo.frecuenciaMetrologia %></span>
             </div>
           </div>
         </div>
@@ -37,9 +29,6 @@
       <div class="actions col-xs-2">
         <%= link_to (edit_equipo_path(equipo)) do %>
         <span class="glyphicon glyphicon-edit"></span> Editar
-        <% end %>
-        <%= link_to equipo, method: :delete, data: { confirm: 'Are you sure?' } do %>
-        <span class="glyphicon glyphicon-trash"></span> Eliminar
         <% end %>
       </div>
     </div>

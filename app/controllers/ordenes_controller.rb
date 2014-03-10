@@ -48,6 +48,8 @@ class OrdenesController < ApplicationController
     when 1
       updateParameters[:estado] = 3
       updateParameters[:fechaEjecucion] = Date.current()
+    when 3
+      updateParameters[:estado] = 4
     end
     respond_to do |format|
       if @orden.update(updateParameters)

@@ -1,6 +1,6 @@
 <div class="container">
   <%= render partial: "equipos/equipo", object: @equipo, as: "equipo" %>
-  <%= render partial: "orden", object: @orden, as: "orden" %>
+  <%= render partial: "show", object: @orden, as: "orden" %>
   <%= form_for [@equipo, @orden], :html => {:class => "form-horizontal editarOrdenForm"} do |f| %>
     <% if @orden.errors.any? %>
       <div class="alert alert-danger alert-dismissable">
@@ -40,6 +40,23 @@
           <%= f.hidden_field :firma %>
         </div>
       </div>
+      
+      <%= javascript_include_tag "jquery.signaturepad.min.js" %>
+      <%= javascript_include_tag "json2.min.js" %>
+      <%= stylesheet_link_tag    "jquery.signaturepad.css" %>
+          
+      <script>
+        $(document).ready(function() {
+          var options = {
+            drawOnly : true,
+            output: "#orden_firma",
+            validateFields: false
+          };
+          setTimeout(function(){
+            var signature = $('.editarOrdenForm').signaturePad(options);
+          }, 100);
+        });
+      </script>
          
     <% end %>
 
@@ -62,17 +79,4 @@
 </div>
 
 
-<%= javascript_include_tag "jquery.signaturepad.min.js" %>
-<%= javascript_include_tag "json2.min.js" %>
-<%= stylesheet_link_tag    "jquery.signaturepad.css" %>
-    
-<script>
-  $(document).ready(function() {
-    var options = {
-      drawOnly : true,
-      output: "#orden_firma",
-      validateFields: false
-    };
-    var signature = $('.editarOrdenForm').signaturePad(options);
-  });
-</script>
+

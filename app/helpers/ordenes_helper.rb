@@ -24,4 +24,15 @@ module OrdenesHelper
       "Cerrada"
     end
   end
+  
+  def descripcionOrdenHelper(orden)
+    case orden.tipoOrden
+    when 1
+      orden.falla
+    when 2
+      "Programado para #{orden.fecha_programada}"
+    when 3
+      "Programado para #{orden.fecha_programada}"
+    end
+  end
 end

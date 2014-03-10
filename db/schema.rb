@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304151742) do
+ActiveRecord::Schema.define(version: 20140310014243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20140304151742) do
     t.integer  "estado"
     t.integer  "tecnico_id"
     t.date     "fechaEjecucion"
-    t.string   "firma"
+    t.text     "firma"
   end
 
   add_index "ordenes", ["equipo_id"], name: "index_ordenes_on_equipo_id", using: :btree

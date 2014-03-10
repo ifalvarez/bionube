@@ -1,0 +1,58 @@
+<% if @orden.estado >= 1 %>
+  <div class="manasyHeader">SOLICITUD</div>
+  <div class="row manasyPanel">
+    <div class="col-xs-12">
+      <strong><%= orden.solicitante %>:</strong><br/>
+      <div class="manasyText">
+        <% case orden.tipoOrden 
+          when 1%>
+          <%= orden.falla %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<% if @orden.estado >= 3 %>
+  <div class="manasyHeader">ACTIVIDAD REALIZADA</div>
+  <div class="row manasyPanel">
+    <div class="col-xs-12">
+      <strong><%= orden.tecnico.nombre %>:</strong><br/>
+      <div class="manasyText">
+        <%= orden.actividadRealizada %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<% if @orden.estado >= 4 %>
+  <div class="manasyHeader">FIRMA RECIBIDO</div>
+  <div class="row manasyPanel">
+    <div class="col-xs-12">
+      <div class="sigPad signed">
+        <div class="sigWrapper">
+          <canvas class="pad" width="200" height="55"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= javascript_include_tag "jquery.signaturepad.min.js" %>
+  <%= javascript_include_tag "json2.min.js" %>
+  <%= stylesheet_link_tag    "jquery.signaturepad.css" %>
+  <script>
+    var sig = <%=raw orden.firma %>;
+    
+    $(document).ready(function () {
+      setTimeout(function(){
+        $('.sigPad').signaturePad({displayOnly:true}).regenerate(sig);
+      }, 1000);
+    });
+  </script>
+
+<% end %>
+<div class="manasyHeader">COMENTARIOS</div>
+<div class="row">
+  <ul class="list-group">
+    <% @orden.comments.each do |comentario| %>
+      <li class="list-group-item readable"><%= comentario.comment %></li>
+    <% end %>
+  </ul>
+</div>

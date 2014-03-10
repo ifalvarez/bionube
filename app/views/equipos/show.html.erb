@@ -18,7 +18,7 @@
   		  <span class="equipoUbicacion">
           <span><%= @equipo.sede %></span>
           <span><%= @equipo.ubicacion %></span>
-          <span><%= @equipo.estado %></span>
+          <span class="badge"><%= estadoEquipoHelper(@equipo.estado) %></span>
         </span>
   		</div>
 		  

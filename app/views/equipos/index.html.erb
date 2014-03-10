@@ -1,7 +1,7 @@
 <div class="container equipos">
   
   <%= link_to new_equipo_path, :class => "btn btn-default pull-right anadir" do %>
-    <span class="glyphicon glyphicon-plus"></span> Añadir
+    <span class="glyphicon glyphicon-plus"></span> Nuevo
   <% end %>
 
   <div class="header row hidden-xs">
@@ -34,15 +34,7 @@
                 <% end %>
               </div>
               <div class="tags">
-                <span><%= tipoEquipoHelper(equipo.tipo) %></span>
-                <span><%= clasificacionEquipoHelper(equipo.clasificacion) %></span>
                 <span class="ubicacion"><%= equipo.sede %> - <%= equipo.ubicacion %></span>
-                <span><%= equipo.marca %></span>
-                <span><%= equipo.modelo %></span>
-                <span><%= equipo.serie %></span>
-                <span><%= equipo.fechaIngreso %></span>
-                <span><%= equipo.frecuenciaPreventivo %></span>
-                <span><%= equipo.frecuenciaMetrologia %></span>
               </div>
             </div>
           </div>
@@ -59,7 +51,16 @@
           <% end %>
         </div>
       </div>
-      <div class="item-description row"></div>
+      <div class="item-description row hidden">
+        <span><%= equipo.marca %></span>
+        <span><%= equipo.modelo %></span>
+        <span><%= equipo.serie %></span>
+        <span><%= equipo.fechaIngreso %></span>
+        <span><%= equipo.frecuenciaPreventivo %></span>
+        <span><%= equipo.frecuenciaMetrologia %></span>
+        <span><%= tipoEquipoHelper(equipo.tipo) %></span>
+        <span><%= clasificacionEquipoHelper(equipo.clasificacion) %></span>
+      </div>
     </div>
   </div>
   <% end %>
