@@ -1,0 +1,21 @@
+= form_for @ip, :html => {:class => "form-horizontal"} do |f|
+  - if @ip.errors.any?
+    .alert.alert-danger.alert-dismissable
+      %button.close {:type => "button", :data-dismiss => "alert", :aria-hidden => "true"}&times;
+      %h2= "#{@ip.errors.count} Errores impidieron que esta institucion se guardara:"
+      %ul
+        - @ip.errors.full_messages.each do |msg|
+          %li= msg
+
+  .row
+    .form-group
+      = f.label :name, :class => "col-xs-3 control-label"
+      .col-xs-7
+        = f.text_field :name, :class => "form-control" , :autofocus => true
+  
+  
+  .row
+    %br
+    %button.btn.btn-default.center-block{:type => "submit"}
+      %span.glyphicon.glyphicon-save
+      Guardar

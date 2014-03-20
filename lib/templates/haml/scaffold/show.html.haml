@@ -1,0 +1,10 @@
+.container
+  .row.manasyPanel
+    = link_to edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => "btn btn-default pull-right anadir" do
+      %span.glyphicon.glyphicon-edit
+      Editar
+<% for attribute in attributes -%>
+    .col-xs-4.equipoProperty
+      %span.equipoPropertyName <%= attribute.human_name %>
+      = @<%= singular_table_name %>.<%= attribute.name %>
+<% end -%>

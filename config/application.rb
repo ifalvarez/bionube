@@ -23,6 +23,7 @@ module ManasyRails
     
     config.generators do |g|
       g.fixture_replacement :factory_girl
+      g.stylesheets = false
     end
 
   end

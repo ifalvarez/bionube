@@ -1,0 +1,8 @@
+.container
+  .row.manasyPanel
+    = link_to edit_ip_path(@ip), :class => "btn btn-default pull-right anadir" do
+      %span.glyphicon.glyphicon-edit
+      Editar
+    .col-xs-4.equipoProperty
+      %span.equipoPropertyName Name
+      = @ip.name

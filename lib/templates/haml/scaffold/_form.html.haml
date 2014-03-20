@@ -1,0 +1,25 @@
+= form_for @<%= singular_table_name %>, :html => {:class => "form-horizontal"} do |f|
+  - if @<%= singular_table_name %>.errors.any?
+    .alert.alert-danger.alert-dismissable
+      %button.close {:type => "button", :data-dismiss => "alert", :aria-hidden => "true"}&times;
+      %h2= "#{@<%= singular_table_name %>.errors.count} Errores impidieron que esta institucion se guardara:"
+      %ul
+        - @<%= singular_table_name %>.errors.full_messages.each do |msg|
+          %li= msg
+
+  .row
+<% attributes.each_with_index do |attribute, index| -%>
+    .form-group
+      = f.label :<%= attribute.name %>, :class => "col-xs-3 control-label"
+      .col-xs-7
+<% if index == 0 -%>
+        = f.<%= attribute.field_type %> :<%= attribute.name %>, :class => "form-control" , :autofocus => true
+<% else -%>
+        = f.<%= attribute.field_type %> :<%= attribute.name %>, :class => "form-control"
+<% end -%>  
+<% end -%>  
+  .row
+    %br
+    %button.btn.btn-default.center-block{:type => "submit"}
+      %span.glyphicon.glyphicon-save
+      Guardar

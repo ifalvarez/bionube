@@ -1,0 +1,20 @@
+.container
+  %table.manasyPanel.table
+    %tr
+<% for attribute in attributes -%>
+      %th <%= attribute.human_name %>
+<% end -%>
+      %th
+      %th
+        
+    - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
+      %tr
+<% for attribute in attributes -%>
+        %td= <%= singular_table_name %>.<%= attribute.name %>
+<% end -%>
+        %td
+          = link_to edit_<%= singular_table_name %>_path(<%= singular_table_name %>) do
+            %span.glyphicon.glyphicon-edit
+        %td
+          = link_to <%= singular_table_name %>, :method => :delete, :data => { :confirm => 'Esta seguro?' } do
+            %span.glyphicon.glyphicon-trash
