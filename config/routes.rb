@@ -1,6 +1,6 @@
 ManasyRails::Application.routes.draw do
   
-  resources :ips
+  resources :instituciones
 
   resources :tecnicos
 

@@ -1,4 +1,7 @@
 .container
+  = link_to new_<%= singular_table_name %>_path, :class => "btn btn-default pull-right anadir" do
+    %span.glyphicon.glyphicon-plus
+    Añadir
   %table.manasyPanel.table
     %tr
 <% for attribute in attributes -%>
