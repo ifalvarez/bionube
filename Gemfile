@@ -31,7 +31,12 @@ gem 'rails_12factor', group: :production
 
 ruby "2.1.0"
 
+# Authentication with Devise
 gem 'devise'
+
+# Authorization with The Role
+gem 'the_role'
+gem 'the_role_bootstrap3_ui'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -51,8 +56,10 @@ gem 'acts_as_commentable'
 #Charts in javascript 
 gem "chartkick"
 
+gem 'haml-rails'
+
 #Fake data for tests
-gem 'factory_girl_rails'
+# gem 'factory_girl_rails'
                        
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

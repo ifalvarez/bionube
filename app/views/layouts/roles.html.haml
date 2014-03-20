@@ -1,0 +1,8 @@
+= render :template => 'layouts/application'
+
+.container
+  .row
+    .col-xs-3
+      = yield :role_sidebar
+    .col-xs-9
+      = yield :role_main

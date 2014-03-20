@@ -42,10 +42,15 @@
               <li>
                 <%= link_to "TECNICOS", tecnicos_path %>
               </li>
+              <% if current_user.admin? %>
+                <li>
+                  <%= link_to "ROLES", admin_roles_path %>
+                </li>
+              <% end %>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               	<li>
-                  <a href=#><%= current_user.email %></a>
+                  <a href=#><%= current_user.email %> - <%= current_user.role.title %></a>
                 </li>
                 <li>
                   <%= link_to destroy_user_session_path, :method => :delete do %>
@@ -80,6 +85,5 @@
       <% end %>
     </div>
     <%= yield %>
-
   </body>
 </html>
