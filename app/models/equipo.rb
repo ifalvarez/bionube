@@ -1,5 +1,5 @@
 class Equipo < ActiveRecord::Base
-  belongs_to :ip
+  belongs_to :institucion
   has_many :mantenimiento_preventivos
   has_many :metrologias
   has_many :ordenes

@@ -1,5 +1,6 @@
 class OrdenesController < ApplicationController
   before_action :set_orden, only: [:show, :edit, :update, :destroy]
+  before_action :checkPermissions, only: [:show, :edit, :update, :destroy]
   before_action :set_equipo, only: [:index, :show, :edit, :update, :new, :create]
 
   # GET /ordenes
@@ -80,6 +81,14 @@ class OrdenesController < ApplicationController
         @equipo = Equipo.find(params[:equipo_id])
       elsif @orden
         @equipo = @orden.equipo
+      end
+    end
+    
+    # Check ownership of the object.
+    def checkPermissions
+      if @orden.equipo.institucion != current_user.institucion
+        flash[:alert] = "No tienes acceso al equipo especificado"
+        redirect_to equipos_path
       end
     end
     

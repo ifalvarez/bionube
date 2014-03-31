@@ -1,5 +1,6 @@
 class DocumentosController < ApplicationController
   before_action :set_documento, only: [:show, :edit, :update, :destroy]
+  before_action :checkPermissions, only: [:show, :edit, :update, :destroy]
   before_action :set_equipo, only: [:show, :edit, :update, :destroy, :new, :create]
 
   # GET /documentos/1
@@ -63,6 +64,14 @@ class DocumentosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_documento
       @documento = Documento.find(params[:id])
+    end
+    
+    # Check ownership of the object.
+    def checkPermissions
+      if @documento.equipo.institucion != current_user.institucion
+        flash[:alert] = "No tienes acceso al equipo especificado"
+        redirect_to equipos_path
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
