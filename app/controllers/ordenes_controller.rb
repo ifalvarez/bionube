@@ -2,6 +2,7 @@ class OrdenesController < ApplicationController
   before_action :set_orden, only: [:show, :edit, :update, :destroy]
   before_action :checkPermissions, only: [:show, :edit, :update, :destroy]
   before_action :set_equipo, only: [:index, :show, :edit, :update, :new, :create]
+  before_action :role_required
 
   # GET /ordenes
   # GET /ordenes.json

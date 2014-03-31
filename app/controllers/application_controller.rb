@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
   def access_denied
     flash[:alert] = t('the_role.access_denied')
     redirect_to(:back)
+      rescue ActionController::RedirectBackError
+    redirect_to root_path
   end
   
   

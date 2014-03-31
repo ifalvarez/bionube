@@ -1,6 +1,7 @@
 class EquiposController < ApplicationController
   before_action :set_equipo, only: [:show, :edit, :update, :destroy]
   before_action :checkPermissions, only: [:show, :edit, :update, :destroy]
+  before_action :role_required
 
   # GET /equipos
   # GET /equipos.json

@@ -1,5 +1,6 @@
 class InstitucionesController < ApplicationController
   before_action :set_institucion, only: [:show, :edit, :update, :destroy]
+  before_action :role_required
 
   # GET /instituciones
   # GET /instituciones.json
