@@ -2,7 +2,7 @@
   <div class="manasyHeader">SOLICITUD</div>
   <div class="row manasyPanel">
     <div class="col-xs-12">
-      <strong><%= orden.solicitante %>:</strong><br/>
+      <strong><%= orden.solicitante.email %>:</strong><br/>
       <div class="manasyText">
           <%= descripcionOrdenHelper(orden) %>
       </div>
@@ -13,7 +13,7 @@
   <div class="manasyHeader">ACTIVIDAD REALIZADA</div>
   <div class="row manasyPanel">
     <div class="col-xs-12">
-      <strong><%= orden.tecnico.nombre %>:</strong><br/>
+      <strong><%= orden.tecnico.email %>:</strong><br/>
       <div class="manasyText">
         <%= orden.actividadRealizada %>
       </div>
@@ -45,11 +45,13 @@
   </script>
 
 <% end %>
-<div class="manasyHeader">COMENTARIOS</div>
-<div class="row">
-  <ul class="list-group">
-    <% @orden.comments.each do |comentario| %>
-      <li class="list-group-item readable"><%= comentario.comment %></li>
-    <% end %>
-  </ul>
-</div>
+<% if @orden.comments.count > 0 %>
+  <div class="manasyHeader">COMENTARIOS</div>
+  <div class="row">
+    <ul class="list-group">
+      <% @orden.comments.each do |comentario| %>
+        <li class="list-group-item readable"><%= comentario.comment %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

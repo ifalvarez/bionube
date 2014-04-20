@@ -16,12 +16,6 @@
     <% end %>
   
     <div class="form-group">
-      <%= f.label :solicitante, :class => "col-sm-2 control-label" %>
-      <div class="col-sm-10">
-        <%= f.text_field :solicitante, :class => "form-control", :placeholder => "ej: Dr. Ivan Alvarez" %>
-      </div>
-    </div>
-    <div class="form-group">
       <%= f.label :tipoOrden, "Tipo de orden", :class => "col-sm-2 control-label" %>
       <div class="col-sm-10">
         <select id="orden_tipoOrden" name="orden[tipoOrden]" class="form-control">
@@ -55,12 +49,6 @@
       </div>
     </div>
     
-    <div class="form-group">
-      <label for="comentario" class="col-sm-2 control-label">Comentario</label>
-      <div class="col-sm-10">
-        <textarea class="form-control" name="comentario" placeholder="ej: informacion adicional"></textarea>
-      </div>
-    </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <button type="submit" class="btn btn-default">
