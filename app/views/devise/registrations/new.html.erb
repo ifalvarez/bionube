@@ -11,9 +11,10 @@
 <% end %>
 
 <h2 class="form-signin-heading">Crea tu cuenta</h2>
-<%= f.email_field :email, :autofocus => true, :class => 'form-control', :placeholder => 'Email' %>
+<input type="text" name="institucion" autofocus="true" class="form-control" placeholder="Institución"/>
+<%= f.email_field :email, :class => 'form-control', :placeholder => 'Email' %>
 <%= f.password_field :password, :class => 'form-control', :placeholder => 'Password' %>
-<%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => 'Password confirmation' %>
+<%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => 'Confirmar password' %>
 </br>
 <button class="btn btn-lg btn-primary btn-block" type="submit">
   Registrarse

@@ -5,7 +5,12 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     build_resource(sign_up_params)
-    @institucion = Institucion.new(:nombre => "Mi Institucion")
+    if params[:institucion] != ''
+      nombre = params[:institucion]
+    else
+      nombre = "Mi Institucion"
+    end
+    @institucion = Institucion.new(:nombre => nombre)
     if @institucion.save
       resource.institucion_id = @institucion.id
       resource.role_id = 5
