@@ -16,9 +16,12 @@ ManasyRails::Application.routes.draw do
   root 'landing#index'
   
   get "landing/index"
-  devise_for :users
+  
+  # devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
   
   get 'indicadores' => 'indicadores#index'
+  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
