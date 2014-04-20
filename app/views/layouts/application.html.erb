@@ -39,9 +39,6 @@
               <li>
                 <%= link_to "INDICADORES", indicadores_path %>
               </li>
-              <li>
-                <%= link_to "TECNICOS", tecnicos_path %>
-              </li>
               <% if current_user.moderator?(:cuentas) %>
                 <li>
                   <%= link_to "CUENTAS", cuentas_path %>

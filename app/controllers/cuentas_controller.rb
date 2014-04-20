@@ -1,5 +1,8 @@
 class CuentasController < ApplicationController
-
+  before_action :set_cuenta, only: [:edit, :update, :destroy]
+  before_action :role_required
+  
+  
   def index
     @cuentas = current_user.institucion.users.select{|c| c.role_id != 1 && c.role_id != 5}
   end
@@ -22,15 +25,16 @@ class CuentasController < ApplicationController
   end
   
   def destroy
-    @cuenta = User.find(params[:id])
     @cuenta.destroy
-
     if @cuenta.destroy
         redirect_to :back, notice: "Cuenta eliminada."
     end
   end
   
   private
+    def set_cuenta
+      @cuenta = User.find(params[:id])
+    end
     def cuenta_params
       params.require(:user).permit(:email, :password, :password_confirmation, :role_id)
     end

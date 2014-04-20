@@ -8,13 +8,6 @@
           <li class="list-group-item">
             <%= cuenta.email %>
             (<%= cuenta.role.title %>)
-            <%= link_to cuenta_path(cuenta), method: :delete, data: { confirm: 'Esta seguro?' }, class: "pull-right" do %>
-              <span class="glyphicon glyphicon-trash"></span>&nbsp; 
-            <% end %>
-            <%= link_to edit_cuenta_path(cuenta), :class => "pull-right" do %>
-              <span class="glyphicon glyphicon-edit"></span>&nbsp;
-            <% end %>
-            
           </li>
         <% end %>
     </ul>

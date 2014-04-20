@@ -1,8 +1,9 @@
 ManasyRails::Application.routes.draw do
   
-  resources :instituciones
-  resources :tecnicos
+  resources :instituciones  
+  
   resources :cuentas
+  
   resources :ordenes
 
   resources :equipos do
