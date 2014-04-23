@@ -7,7 +7,7 @@ class OrdenesController < ApplicationController
   # GET /ordenes
   # GET /ordenes.json
   def index
-    @ordenes = Orden.all
+    @ordenes = Orden.joins("LEFT JOIN equipos ON equipos.id = ordenes.equipo_id where equipos.institucion_id = #{current_user.institucion.id}")
   end
 
   # GET /ordenes/1
