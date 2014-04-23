@@ -1,39 +1,45 @@
-
 <div class="jumbotron">
   <div class="container">
-    <h1>Equipos biomedicos</h1>
-    <p>Hoja de vida, mantenimiento y metrología de sus equipos biomedicos en linea.</p>
-    <p>
-    	<%= link_to(new_registration_path(resource_name), :class => 'btn btn-primary btn-lg') do %>
-			Registrarse gratis »
-		<% end %>
-    </p>
+    <div class="row text-center">
+      <h1>GESTIÓN DE EQUIPOS BIOMÉDICOS</h1>
+    </div>
+        
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <p>Hoja de vida, mantenimiento y metrología de sus equipos biomédicos en línea.</p>
+        <p><%= link_to(new_registration_path(resource_name), :class => 'btn btn-outline-inverse btn-lg') do %>
+    			Registrarse gratis »
+    		<% end %></p>
+    	</div>
+      <div class="col-md-4">
+      </div>
+      
+    </div>
   </div>
 </div>
     
-<div class="container">
+<div class="container features">
   <!-- Example row of columns -->
   <div class="row">
-    <div class="col-md-4">
-      <h2>Alertas</h2>
-      <p>Reciba notificaciones automaticas cuando debe solicitar el mantenimiento o metrología para sus equipos.</p>
-      <p><a class="btn btn-default" href="#" role="button">Ver detalles »</a></p>
+    <div class="col-md-4 manasyFeature">
+      <h2><span class="glyphicon glyphicon-time"></span> Alertas</h2>
+      <p>Recibe notificaciones automáticas cuando debes solicitar el mantenimiento o metrología para tus equipos.</p>
     </div>
-    <div class="col-md-4">
-      <h2>Reportes</h2>
-      <p>Evalue a un click sus costos de mantenimiento, metrologia e inventario para que hagas las mejores deciciones. </p>
-      <p><a class="btn btn-default" href="#" role="button">Ver detalles »</a></p>
+    <div class="col-md-4 manasyFeature">
+      <h2><span class="glyphicon glyphicon-stats"></span> Indicadores</h2>
+      <p>Evalua a un click tus costos de mantenimiento, metrología e inventario para que hagas las mejores deciciones. </p>
    </div>
-    <div class="col-md-4">
-      <h2>Comenzar es gratis</h2>
+    <div class="col-md-4 manasyFeature">
+      <h2><span class="glyphicon glyphicon-usd"></span> Comenzar es gratis</h2>
       <p>Perfecto para estudiantes, pequeñas empresas y grandes instituciones.</p>
-      <p><a class="btn btn-default" href="#" role="button">Ver detalles »</a></p>
     </div>
   </div>
 
   <hr>
 
   <footer>
-    <p>© Manasy 2013</p>
+    <p>© BioNube 2014</p>
   </footer>
 </div>
