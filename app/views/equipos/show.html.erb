@@ -52,7 +52,8 @@
       
     </div>
 	</div>
-	<div class="row manasyHeader">
+
+  <div class="row manasyHeader">
     DOCUMENTOS
   </div>
 	<div class="row">
@@ -90,4 +91,43 @@
       </button>
     <% end %>
 	</div>
+
+  <div class="row manasyHeader">
+    HISTORIAL
+  </div>
+  <div class="row">
+    <ul class="list-group">
+      <% @ordenes.each do |orden| %>
+        <li class="list-group-item clearfix">
+          <div class="pull-left orderPic">
+            <%= image_tag orden.equipo.avatar.url(:medium), :class => "img-thumbnail equipment-image" %>
+          </div>
+          <div class="pull-left orderBody">
+            <div class="actions pull-right">
+              <%= link_to (edit_orden_path(orden)) do %>
+                <span class="glyphicon glyphicon-edit"></span> Editar
+              <% end %>
+              <%= link_to orden, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <span class="glyphicon glyphicon-trash"></span> Eliminar
+              <% end %>
+            </div>
+            <div class="name">
+              <%= link_to(orden) do %>
+                <%= tipoOrdenHelper(orden.tipoOrden) %> para: <%= orden.equipo.equipo %>
+              <% end %>
+            </div>
+            <div class="description">
+              <%= descripcionOrdenHelper(orden) %>
+            </div>
+            <div class="tags">
+              <span class="comentarios"><%= orden.comments.size() %> comentarios</span>
+              <span class="solicitante"><%= orden.solicitante.email %></span>
+              <span class="ubicacion">Sede centro - 308</span>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
 </div>

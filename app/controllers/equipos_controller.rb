@@ -13,6 +13,7 @@ class EquiposController < ApplicationController
   # GET /equipos/1.json
   def show
     @documento = Documento.new
+    @ordenes = Orden.where("equipo_id = ?", @equipo.id)
     
   end
 
